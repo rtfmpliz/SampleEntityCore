@@ -4,32 +4,36 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SampleEntityCore.Data;
+using SampleEntityCore.DAL;
+using SampleEntityCore.Models;
 
 namespace SampleEntityCore.Controllers
 {
     public class CategoryController : Controller
     {
-        private POSDataContext _context;
+        private ICategory _category;
 
-        public CategoryController(POSDataContext context) //DI disini
+        public CategoryController(ICategory category)
         {
-            
-            _context = context; 
+            _category = category;
         }
         // GET: Category
         public ActionResult Index()
         {
-            var result = from c in _context.Categories
-                         orderby c.CategoryName ascending
-                         select c;
-            return View(result);
+            if (TempData["Pesan"] != null)
+                ViewBag.Pesan = TempData["Pesan"];
+            else
+                ViewBag.Pesan = string.Empty;
+
+            var results = _category.GetAll();
+            return View(results);
         }
 
         // GET: Category/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var result = _category.GetById(id.ToString());
+            return View(result);
         }
 
         // GET: Category/Create
@@ -41,16 +45,19 @@ namespace SampleEntityCore.Controllers
         // POST: Category/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Category category)
         {
+            
             try
             {
                 // TODO: Add insert logic here
-
+                _category.Create(category);
+                TempData["Pesan"] = "<span class='alert alert-success'>Data " + category.CategoryName + " berhasil ditambah !</span>";
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = "<span class='alert alert-danger'>Kesalahan " + ex.Message + "</Span>";
                 return View();
             }
         }
@@ -58,22 +65,26 @@ namespace SampleEntityCore.Controllers
         // GET: Category/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var result = _category.GetById(id.ToString());
+            return View(result);
         }
 
         // POST: Category/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Category   category)
         {
+            ViewBag.Error = string.Empty;
             try
             {
                 // TODO: Add update logic here
-
+                _category.Edit(id.ToString(), category);
+                TempData["Pesan"] = "<span class='alert alert-success'>Data " + category.CategoryName + " berhasil diupdate !</span>";
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = "<span class='alert alert-danger'>Kesalahan " + ex.Message + "</Span>";
                 return View();
             }
         }
@@ -81,22 +92,25 @@ namespace SampleEntityCore.Controllers
         // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var result = _category.GetById(id.ToString());
+            return View(result);
         }
 
         // POST: Category/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Category category)
         {
             try
             {
+                _category.Delete(id.ToString());
                 // TODO: Add delete logic here
-
+                TempData["Pesan"] = "<span class='alert alert-success'>Data " + category.CategoryName + " berhasil didelte !</span>";
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.Error = "<span class='alert alert-danger'>Kesalahan " + ex.Message + "</Span>";
                 return View();
             }
         }

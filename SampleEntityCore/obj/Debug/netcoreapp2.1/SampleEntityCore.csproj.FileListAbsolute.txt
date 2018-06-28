@@ -30,4 +30,14 @@ C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreap
 C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\SampleEntityCore.dll
 C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\SampleEntityCore.pdb
 C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\SampleEntityCore.csproj.CopyComplete
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Category2\Index.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Create.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Delete.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Details.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Edit.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Index.g.cshtml.cs
 C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Category\Index.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Category\Create.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Category\Details.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Category\Edit.g.cshtml.cs
+C:\Users\user\source\repos\SampleEntityCore\SampleEntityCore\obj\Debug\netcoreapp2.1\Razor\Views\Category\Delete.g.cshtml.cs

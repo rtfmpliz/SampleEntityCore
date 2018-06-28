@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SampleEntityCore.DAL;
 using SampleEntityCore.Data;
 
 namespace SampleEntityCore
@@ -35,6 +36,7 @@ namespace SampleEntityCore
 
             services.AddDbContext<POSDataContext>(o => o.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<ICategory, CategoryDAL>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

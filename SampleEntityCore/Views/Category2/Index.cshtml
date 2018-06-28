@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<SampleEntityCore.Models.Category>
 
 @{
-    ViewData["Title"] = "Category List";
+    ViewData["Title"] = "Index";
 }
 
-<h2>Category List</h2>
+<h2>Daftar Category </h2>
 
 <p>
     <a asp-action="Create">Create New</a>
-</p><br />
-@Html.Raw(ViewBag.Pesan)<br /><br />
-
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -33,12 +31,9 @@
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryID">Delete</a> |
-                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) | // model lama
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
